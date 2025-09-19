@@ -1,0 +1,217 @@
+/* Variáveis para cores */
+:root {
+    --primary-color: #004A8D; /* Azul oficial SENAC */
+    --secondary-color: #6c757d; /* Cinza */
+    --accent-color: #F58220; /* Laranja oficial para destaque */
+    --text-color: #333;
+    --background-color: #f8f9fa; /* Fundo claro */
+    --card-background: #fff;
+    --border-color: #dee2e6;
+}
+
+/* Reset básico e estilos globais */
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: #343a40;
+    margin-top: 0;
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.senac-brand {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+header nav {
+    float: right;
+    margin-top: 5px;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom: 2px solid white;
+}
+
+/* Main Content */
+main {
+    padding: 2rem 0;
+}
+
+.card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+/* Filtros */
+.filters {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap; /* Para telas menores */
+}
+
+.filters label {
+    font-weight: bold;
+    color: #555;
+}
+
+.filters select {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.filters select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Tabela de Horários */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.schedule-table thead th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.schedule-table tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--card-background);
+}
+
+.schedule-table tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.2s ease;
+}
+
+.schedule-table tbody tr:nth-child(even) td {
+    background-color: #fcfcfc; /* Zebra striping */
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 30px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    header nav {
+        float: none;
+        text-align: center;
+        margin-top: 15px;
+    }
+    header nav ul li {
+        margin: 0 10px;
+    }
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .schedule-table thead {
+        display: none; /* Esconde o cabeçalho da tabela em telas pequenas */
+    }
+    .schedule-table, .schedule-table tbody, .schedule-table tr, .schedule-table td {
+        display: block; /* Transforma a tabela em blocos para melhor visualização */
+        width: 100%;
+    }
+    .schedule-table tr {
+        margin-bottom: 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .schedule-table td {
+        text-align: right;
+        padding-left: 50%; /* Espaço para o "label" antes do conteúdo */
+        position: relative;
+        border-bottom: 1px dotted var(--border-color);
+    }
+    .schedule-table td::before {
+        content: attr(data-label); /* Usa o atributo data-label para mostrar o título da coluna */
+        position: absolute;
+        left: 15px;
+        width: calc(50% - 30px);
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        text-align: left;
+        color: var(--primary-color);
+    }
+    /* Adicionar data-label ao HTML para a responsividade da tabela */
+    #aulas-hoje-body tr td:nth-child(1)::before { content: "Horário:"; }
+    #aulas-hoje-body tr td:nth-child(2)::before { content: "Sala:"; }
+    #aulas-hoje-body tr td:nth-child(3)::before { content: "Curso/Turma:"; }
+    #aulas-hoje-body tr td:nth-child(4)::before { content: "Professor:"; }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Operações - SENAC</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>SENAC<span class="brand-alt">Admin</span></h3>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="active" onclick="showView('dashboard')"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li onclick="showView('agenda')"><a href="#"><i class="fas fa-calendar-alt"></i> Agenda de Aulas</a></li>
+            <li onclick="showView('professores')"><a href="#"><i class="fas fa-chalkboard-teacher"></i> Professores</a></li>
+            <li onclick="showView('salas')"><a href="#"><i class="fas fa-door-open"></i> Salas</a></li>
+            <li onclick="showView('cursos')"><a href="#"><i class="fas fa-book"></i> Cursos</a></li>
+            <li onclick="showView('logs')"><a href="#"><i class="fas fa-file-alt"></i> Log de Auditoria</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="main-header">
+            <div class="user-info">
+                <span>Bem-vindo, <strong>Carlos (Admin)</strong></span>
+            </div>
+            <button class="primary-button" onclick="openModal('modal-agendamento')">
+                <i class="fas fa-plus"></i> Nova Aula
+            </button>
+        </header>
+
+        <main id="main-view">
+            </main>
+    </div>
+
+    <div id="modal-agendamento" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('modal-agendamento')">&times;</span>
+            <h3>Agendar Nova Aula</h3>
+            <form id="form-agendamento">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="curso">Curso/Turma</label>
+                        <select id="curso" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="professor">Professor</label>
+                        <select id="professor" required></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sala">Sala (Sugestões com base nos recursos)</label>
+                    <select id="sala" required></select>
+                </div>
+                <div class="form-group">
+                    <label>Agendamento Recorrente?</label>
+                    <input type="checkbox" id="recorrente"> Sim
+                </div>
+                <div class="form-row" id="campos-recorrencia" style="display: none;">
+                     <div class="form-group">
+                        <label for="dia-semana">Dia da Semana</label>
+                        <select id="dia-semana"><option>Segunda-feira</option>...</select>
+                    </div>
+                     <div class="form-group">
+                        <label for="data-final">Até a data</label>
+                        <input type="date" id="data-final">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="horario-inicio">Horário de Início</label>
+                        <input type="time" id="horario-inicio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="horario-fim">Horário de Fim</label>
+                        <input type="time" id="horario-fim" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="secondary-button" onclick="closeModal('modal-agendamento')">Cancelar</button>
+                    <button type="submit" class="primary-button">Verificar e Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="admin-script.js"></script>
+</html>

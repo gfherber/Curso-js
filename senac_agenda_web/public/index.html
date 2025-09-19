@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Aulas - SENAC</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Agenda de Aulas <span class="senac-brand">SENAC</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="#hoje">Hoje</a></li>
+                    <li><a href="#proximos-dias">Próximos Dias</a></li>
+                    <li><a href="#professores">Professores</a></li>
+                    <li><a href="#salas">Salas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hoje" class="card">
+            <h2>Aulas de Hoje (<span id="data-hoje"></span>)</h2>
+            <div class="filters">
+                <label for="filter-sala">Filtrar por Sala:</label>
+                <select id="filter-sala">
+                    <option value="">Todas</option>
+                    <option value="Sala 101">Sala 101</option>
+                    <option value="Laboratório A">Laboratório A</option>
+                    <option value="Auditório">Auditório</option>
+                </select>
+
+                <label for="filter-professor">Filtrar por Professor:</label>
+                <select id="filter-professor">
+                    <option value="">Todos</option>
+                    <option value="Prof. João Silva">Prof. João Silva</option>
+                    <option value="Profa. Maria Santos">Profa. Maria Santos</option>
+                </select>
+            </div>
+            
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Sala</th>
+                        <th>Curso/Turma</th>
+                        <th>Professor</th>
+                    </tr>
+                </thead>
+                <tbody id="aulas-hoje-body">
+                    <tr>
+                        <td>08:00 - 10:00</td>
+                        <td>Sala 101</td>
+                        <td>Técnico em Informática - Tarde</td>
+                        <td>Prof. João Silva</td>
+                    </tr>
+                    <tr>
+                        <td>10:00 - 12:00</td>
+                        <td>Laboratório A</td>
+                        <td>Técnico em Informática - Noite</td>
+                        <td>Prof. Ana Costa</td>
+                    </tr>
+                    <tr>
+                        <td>14:00 - 16:00</td>
+                        <td>Sala 102</td>
+                        <td>Técnico em Design Gráfico - Manhã</td>
+                        <td>Profa. Maria Santos</td>
+                    </tr>
+                    <tr>
+                        <td>16:00 - 18:00</td>
+                        <td>Auditório</td>
+                        <td>Workshop de Inovação</td>
+                        <td>Prof. Pedro Álvares</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 SENAC - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Apenas para mostrar a data atual no modelo
+        document.getElementById('data-hoje').textContent = new Date().toLocaleDateString('pt-BR');
+    </script>
+</body>
+</html>

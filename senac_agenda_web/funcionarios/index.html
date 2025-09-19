@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Funcionário - SENAC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Área do Funcionário <span class="senac-brand">SENAC</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="../public/index.html">Voltar para Agenda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Adicionar Nova Aula</h2>
+            <p>Preencha os campos abaixo para adicionar uma aula:</p>
+            <form id="form-nova-aula">
+                <label for="input-horario">Horário:</label>
+                <input type="text" id="input-horario" placeholder="Ex: 08:00 - 10:00" required>
+
+                <label for="input-sala">Sala:</label>
+                <input type="text" id="input-sala" placeholder="Ex: Sala 101" required>
+
+                <label for="input-curso">Curso/Turma:</label>
+                <input type="text" id="input-curso" placeholder="Ex: Técnico em Informática - Tarde" required>
+
+                <label for="input-professor">Professor:</label>
+                <input type="text" id="input-professor" placeholder="Ex: Prof. João Silva" required>
+
+                <button type="submit">Adicionar Aula</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Aulas Adicionadas</h2>
+            <table class="schedule-table" id="tabela-funcionario">
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Sala</th>
+                        <th>Curso/Turma</th>
+                        <th>Professor</th>
+                    </tr>
+                </thead>
+                <tbody id="aulas-funcionario-body">
+                    <!-- Novas aulas serão adicionadas aqui via JS -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 SENAC - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

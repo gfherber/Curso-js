@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendar Nova Aula - Admin</title>
+    <link rel="stylesheet" href="agendar-aula.css"> </head>
+<body>
+    <header>
+        <h1>Painel Administrativo - Agendar Aula</h1>
+    </header>
+    <main class="container">
+        <form id="form-agendamento">
+            <h2>Informações da Aula</h2>
+            
+            <div class="form-group">
+                <label for="curso">Curso/Turma:</label>
+                <select id="curso" name="curso" required>
+                    <option value="">Selecione uma turma...</option>
+                    <option value="1">Técnico em Informática - Tarde</option>
+                    <option value="2">Técnico em Design Gráfico - Manhã</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="professor">Professor:</label>
+                <select id="professor" name="professor" required>
+                    <option value="">Selecione um professor...</option>
+                    <option value="1">Prof. João Silva</option>
+                    <option value="2">Profa. Maria Santos</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="sala">Sala:</label>
+                <select id="sala" name="sala" required>
+                    <option value="">Selecione uma sala...</option>
+                    <option value="1">Sala 101</option>
+                    <option value="2">Laboratório A</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="data">Data da Aula:</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="horario-inicio">Horário de Início:</label>
+                <input type="time" id="horario-inicio" name="horario-inicio" required>
+            </div>
+
+            <div class="form-group">
+                <label for="horario-fim">Horário de Fim:</label>
+                <input type="time" id="horario-fim" name="horario-fim" required>
+            </div>
+
+            <button type="submit">Salvar Agendamento</button>
+        </form>
+    </main>
+    <script src="func-script.js"></script>
+</body>
+</html>
